@@ -90,11 +90,23 @@
             - contains information that was requested or an error message
         - status code
             - a number response that indicate how the request was handled
-            - [more info on status code] (https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+            - [more info on status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
                 - 100 is informational
                 - 200 is success
                 - 300 is redirect
                 - 400 is user error (client side error)
                 - 500 is server error (developer issue)
-            
+
+# JSON 
+    JavaScript Object Notation (JSON) is one of the most popular ways of formatting information in http request (any sort of web based communication).
+    At the core, JSONs are formatted strings
+
+    {
+        "keyOne" : "valueOne",
+        "keyTwo" : 2,
+        "keyThree" : true,
+    }
+        
+        JSONs accept 3 data types: Strings, Numbers, and Booleans.
+
 
