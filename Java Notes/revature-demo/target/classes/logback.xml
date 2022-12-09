@@ -1,0 +1,32 @@
+<!-- Basic config for logger -->
+
+<!-- start with root config tag -->
+<configuration>
+
+    <!-- appender tag tells how and where -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender" >
+
+        <!-- enconder tag is for formatting --> 
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+        </encoder>
+
+    </appender>
+
+    <!-- root tag tells logback the default setting when not specified -->
+    <root level="INFO">
+        <!--Single Tags: ends witha forward slash /-->
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>
+
+<!--
+    Logging levels:
+        TRACE - Provides all information
+        DEBUG - Provides relevant information for debugging
+        INFO - Provides general information
+        WARN - Provides developer of issues
+        ERROR - Provides information of failures
+        NONE (disable)
+-->
