@@ -3,13 +3,24 @@ package com.example;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import io.javalin.Javalin;
 
 public class Library {
 
+    public static Logger libLogs = LoggerFactory.getLogger(Library.class);
+
     static List<Book> library = new ArrayList<>();
 
     public static void main(String[] args) {
+        libLogs.trace("Trace level log.");
+        libLogs.debug("Debug level log.");
+        libLogs.info("Info level log. Application Starting");
+        libLogs.warn("Warn level log.");
+        libLogs.error("Error level log.");
+
         Book startingBook = new Book();
         startingBook.setTitle("The End");
         startingBook.setAuthor("Alone");
