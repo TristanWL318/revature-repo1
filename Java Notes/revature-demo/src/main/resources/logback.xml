@@ -4,7 +4,7 @@
 <configuration>
 
     <!-- appender tag tells how and where -->
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender" >
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 
         <!-- enconder tag is for formatting --> 
         <encoder>
@@ -13,10 +13,48 @@
 
     </appender>
 
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+
+        <!-- file tag tells logback where to save the log file -->
+        <file>logs/staticLogs.log</file>
+
+        <!-- append tag tells logback to add to current file or create a new file -->
+        <append>true</append>
+
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+        </encoder>
+
+    </appender>
+
+    <appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        
+        <file>logs/rollingLogs.log</file>
+        <append>true</append>
+
+        <!-- creates a new log file -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        
+            <fileNamePattern>rollingLogs.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+            <!-- determines how many days worth of log in a file -->
+            <maxHistory>7</maxHistory>
+            
+            <!-- determines the max size of a log file -->
+            <totalSizeCap>3GB</totalSizeCap>
+        
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+        </encoder>
+
+    </appender>
+
     <!-- root tag tells logback the default setting when not specified -->
     <root level="INFO">
-        <!--Single Tags: ends witha forward slash /-->
-        <appender-ref ref="STDOUT"/>
+        <!--Single Tags: ends with a forward slash /-->
+        <appender-ref ref="ROLLING"/>
     </root>
 
 </configuration>
