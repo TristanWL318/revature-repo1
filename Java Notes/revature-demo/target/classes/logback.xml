@@ -46,13 +46,14 @@
         </rollingPolicy>
 
         <encoder>
-            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+            <!-- <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern> -->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
 
     </appender>
 
     <!-- root tag tells logback the default setting when not specified -->
-    <root level="INFO">
+    <root level="TRACE">
         <!--Single Tags: ends with a forward slash /-->
         <appender-ref ref="ROLLING"/>
         <appender-ref ref="STDOUT"/>

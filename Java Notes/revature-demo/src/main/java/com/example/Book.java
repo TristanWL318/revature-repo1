@@ -46,4 +46,10 @@ public class Book {
     public void setIsbn(int isbn) {
         this.isbn = isbn;
     }
+    
+    public static void main(String[] args) {
+        String s = "testing";
+        StringBuilder sb = new StringBuilder(s);
+        System.out.println(sb.reverse());
+    }
 }

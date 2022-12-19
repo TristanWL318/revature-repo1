@@ -31,11 +31,15 @@ public class ControlFlow {
             System.out.println("Purchase success");
         }
 
+        // Shows an issue because condition fails all the time
         if (20 >= 27)  {
+            // This code inside is never run
             System.out.println("Purchase success");
         }
 
+        // shows an issue because condition fails all the time
         if (false) {
+            // This code inside is never run
             System.out.println("Purchase success");
         }
 
