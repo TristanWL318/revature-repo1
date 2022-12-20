@@ -75,5 +75,6 @@ buildNumber.properties
 .history
 .ionide
 
+src/resources/
 *.properties
 # End of https://www.toptal.com/developers/gitignore/api/java,maven,visualstudiocode,database
