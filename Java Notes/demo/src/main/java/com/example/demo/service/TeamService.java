@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.Team;
@@ -11,7 +12,7 @@ import com.example.demo.repository.TeamDao;
 
 @Service
 public class TeamService {
-    
+
     @Autowired
     private TeamDao dao;
 
@@ -50,10 +51,16 @@ public class TeamService {
 
     public String updateTeam(String teamName, int id) {
         int result = this.dao.updateTeam(teamName, id);
+
         if (result != 0) {
             return "Update Successful!";
         } else {
             return "Update Failed.";
         }
+    }
+
+    public String deleteTeamById(int id) {
+        this.dao.deleteById(id);
+        return "Deleted team with id of " + id;
     }
 }
