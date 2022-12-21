@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.Team;
+import com.example.demo.exceptions.EntityNotFound;
 import com.example.demo.repository.TeamDao;
 
 @Service
@@ -18,24 +18,32 @@ public class TeamService {
 
     public Team getTeamById(int id) {
         Optional<Team> possibleTeam = this.dao.findById(id);
+
         if (possibleTeam.isPresent()) {
             return possibleTeam.get();
         } else {
-            return new Team();
+            throw new EntityNotFound("Team with ID: " + id + " not Found!");
         }
     }
 
     public Team getTeamByName(String name) {
         Optional<Team> possibleTeam = this.dao.findByTeamName(name);
+
         if (possibleTeam.isPresent()) {
             return possibleTeam.get();
         } else {
-            return new Team();
+            throw new EntityNotFound("Team with Name: " + name + " not Found!");
         }
     }
 
     public List<Team> getAllTeams() {
-        return this.dao.findAll();
+        List<Team> teams = this.dao.findAll();
+
+        if (!teams.isEmpty()) {
+            return teams;
+        } else {
+            throw new EntityNotFound("No teams found in the database.");
+        }
     }
 
     public Team createTeam(Team team) {
@@ -45,7 +53,7 @@ public class TeamService {
         if (possibleTeam.isPresent()) {
             return possibleTeam.get();
         } else {
-            return new Team();
+            throw new EntityNotFound("Couldn't create the team");
         }
     }
 
@@ -55,7 +63,7 @@ public class TeamService {
         if (result != 0) {
             return "Update Successful!";
         } else {
-            return "Update Failed.";
+            throw new EntityNotFound("No players to update.");
         }
     }
 

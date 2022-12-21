@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
 import java.util.List;
-import java.util.ArrayList;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,10 +16,6 @@ public class GreetingController {
 
     private static List<User> users;
     private int count = 1;
-
-    public GreetingController() {
-        users = new ArrayList<>();
-    }
 
     @GetMapping("/hello")
     public String helloWorld() {
@@ -44,6 +38,5 @@ public class GreetingController {
     @GetMapping("/user/{index}")
     public ResponseEntity<User> getUser(@PathVariable int index) {
         return new ResponseEntity<>(users.get(index), HttpStatus.OK);
-        // return new ResponseEntity<>(users.get(index), HttpStatus.I_AM_A_TEAPOT);
     }
 }

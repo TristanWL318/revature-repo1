@@ -16,44 +16,44 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.entities.Team;
+import com.example.demo.entities.Player;
 import com.example.demo.exceptions.EntityNotFound;
-import com.example.demo.service.TeamService;
+import com.example.demo.service.PlayerService;
 
 @RestController
-public class TeamController {
+public class PlayerController {
 
     @Autowired
-    private TeamService tService;
+    private PlayerService pService;
 
-    @GetMapping("/team/id/{id}")
-    public ResponseEntity<Team> getTeamById(@PathVariable int id) {
-        return new ResponseEntity<>(this.tService.getTeamById(id), HttpStatus.OK);
+    @GetMapping("/player/id/{id}")
+    public ResponseEntity<Player> getPlayerById(@PathVariable int id) {
+        return new ResponseEntity<>(this.pService.getPlayerById(id), HttpStatus.OK);
     }
 
-    @GetMapping("/team/{name}")
-    public ResponseEntity<Team> getTeamById(@PathVariable String name) {
-        return new ResponseEntity<>(this.tService.getTeamByName(name), HttpStatus.OK);
+    @GetMapping("/player/{name}")
+    public ResponseEntity<Player> getPlayerById(@PathVariable String name) {
+        return new ResponseEntity<>(this.pService.getPlayerByName(name), HttpStatus.OK);
     }
 
-    @GetMapping("/teams")
-    public ResponseEntity<List<Team>> getAllTeams() {
-        return new ResponseEntity<>(this.tService.getAllTeams(), HttpStatus.OK);
+    @GetMapping("/players")
+    public ResponseEntity<List<Player>> getAllPlayers() {
+        return new ResponseEntity<>(this.pService.getAllPlayers(), HttpStatus.OK);
     }
 
-    @PostMapping("/team")
-    public ResponseEntity<Team> createTeam(@RequestBody Team team) {
-        return new ResponseEntity<>(this.tService.createTeam(team), HttpStatus.CREATED);
+    @PostMapping("/player")
+    public ResponseEntity<Player> createPlayer(@RequestBody Player player) {
+        return new ResponseEntity<>(this.pService.createPlayer(player), HttpStatus.CREATED);
     }
 
-    @PatchMapping("/team")
-    public ResponseEntity<String> updateTeam(@RequestBody Team team) {
-        return new ResponseEntity<>(this.tService.updateTeam(team.getTeamName(), team.getTeamId()), HttpStatus.OK);
+    @PatchMapping("/player")
+    public ResponseEntity<String> updatePlayer(@RequestBody Player player) {
+        return new ResponseEntity<>(this.pService.updatePlayer(player), HttpStatus.OK);
     }
 
-    @DeleteMapping("team/{id}")
-    public ResponseEntity<String> deleteTeamById(@PathVariable int id) {
-        return new ResponseEntity<>(this.tService.deleteTeamById(id), HttpStatus.OK);
+    @DeleteMapping("player/{id}")
+    public ResponseEntity<String> deletePlayerById(@PathVariable int id) {
+        return new ResponseEntity<>(this.pService.deletePlayerById(id), HttpStatus.OK);
     }
 
     @ExceptionHandler(EntityNotFound.class)

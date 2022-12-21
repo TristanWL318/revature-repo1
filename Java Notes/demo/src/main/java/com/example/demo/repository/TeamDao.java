@@ -22,5 +22,5 @@ public interface TeamDao extends JpaRepository<Team, Integer> {
     @Transactional
     @Modifying
     @Query(value = "update teams set team_name = :teamName where team_id = :teamId", nativeQuery = true)
-    int updateTeam(@Param("teamName") String teamName, @Param("teamId") int id);
+    int updateTeam(@Param("teamName") String teamName, @Param("teamId") int teamId);
 }
