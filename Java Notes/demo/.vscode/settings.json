@@ -1,0 +1,30 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "cSpell.words": [
+        "Configurer",
+        "PSQL",
+        "Servlet"
+    ],
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "revature-database.cpy7wubwzr65.us-east-1.rds.amazonaws.com",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "Example",
+            "database": "example",
+            "username": "revdata",
+            "password": "XgAmAiGEjnoBzVVj8VPF"
+        },
+        {
+            "previewLimit": 50,
+            "server": "planetarium-db.cpy7wubwzr65.us-east-1.rds.amazonaws.com",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "Planetarium",
+            "password": "avS8nhMtq3L0zeJvx4HD",
+            "username": "TwcL774",
+            "database": "planetarium"
+        }
+    ]
+}
