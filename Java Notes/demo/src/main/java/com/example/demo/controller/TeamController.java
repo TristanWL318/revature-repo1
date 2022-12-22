@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.postgresql.util.PSQLException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -22,6 +24,8 @@ import com.example.demo.service.TeamService;
 
 @RestController
 public class TeamController {
+
+    private static Logger teamLogger = LoggerFactory.getLogger(TeamController.class);
 
     @Autowired
     private TeamService tService;
@@ -58,6 +62,7 @@ public class TeamController {
 
     @ExceptionHandler(EntityNotFound.class)
     public ResponseEntity<String> entityNotFound(EntityNotFound e) {
+        teamLogger.error(e.getLocalizedMessage(), e);
         return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 

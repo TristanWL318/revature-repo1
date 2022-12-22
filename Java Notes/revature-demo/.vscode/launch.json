@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "com.example.App",
+            "projectName": "revature-demo"
+        },
+        {
+            "type": "java",
+            "name": "Launch Book",
+            "request": "launch",
+            "mainClass": "com.example.Book",
+            "projectName": "revature-demo"
+        },
+        {
+            "type": "java",
+            "name": "Launch Library",
+            "request": "launch",
+            "mainClass": "com.example.Library",
+            "projectName": "revature-demo"
+        },
+        {
+            "type": "java",
+            "name": "Launch TestFIle",
+            "request": "launch",
+            "mainClass": "com.example.TestFIle",
+            "projectName": "revature-demo"
+        },
+        {
+            "type": "java",
+            "name": "Launch Example3",
+            "request": "launch",
+            "mainClass": "com.example.folder.Example3",
+            "projectName": "revature-demo"
+        }
+    ]
+}

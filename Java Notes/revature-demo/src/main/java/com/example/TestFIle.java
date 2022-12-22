@@ -6,17 +6,19 @@ import java.util.Set;
 public class TestFIle {
 
     public static void main(String[] args) {
-        Set<String> stringList = new HashSet<>();
-        stringList.add("test");
+        // Set<String> stringList = new HashSet<>();
+        // stringList.add("test");
 
-        stringList.add("one");
+        // stringList.add("one");
 
-        stringList.add("zero");
+        // stringList.add("zero");
 
-        System.out.println(stringList);
+        // System.out.println(stringList);
 
-        Book book = new Book();
-        System.out.println();
+        // Book book = new Book();
+        // System.out.println();
+
+        System.out.println(1/0);
     }
 
 }
