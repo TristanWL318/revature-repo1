@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.postgresql.util.PSQLException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -22,6 +24,8 @@ import com.example.demo.service.PlayerService;
 
 @RestController
 public class PlayerController {
+
+    private static Logger playerLogger = LoggerFactory.getLogger(PlayerController.class);
 
     @Autowired
     private PlayerService pService;
@@ -58,16 +62,19 @@ public class PlayerController {
 
     @ExceptionHandler(EntityNotFound.class)
     public ResponseEntity<String> entityNotFound(EntityNotFound e) {
+        playerLogger.error(e.getLocalizedMessage(), e);
         return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(PSQLException.class)
     public ResponseEntity<String> sqlIssue(PSQLException e) {
+        playerLogger.error(e.getLocalizedMessage(), e);
         return new ResponseEntity<>(e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
     @ExceptionHandler(EmptyResultDataAccessException.class)
     public ResponseEntity<String> deleteFailed(EmptyResultDataAccessException e) {
+        playerLogger.error(e.getLocalizedMessage(), e);
         return new ResponseEntity<>(e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
     }
 }

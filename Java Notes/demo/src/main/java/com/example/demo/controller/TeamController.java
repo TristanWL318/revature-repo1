@@ -68,11 +68,13 @@ public class TeamController {
 
     @ExceptionHandler(PSQLException.class)
     public ResponseEntity<String> sqlIssue(PSQLException e) {
+        teamLogger.error(e.getLocalizedMessage(), e);
         return new ResponseEntity<>(e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
     @ExceptionHandler(EmptyResultDataAccessException.class)
     public ResponseEntity<String> deleteFailed(EmptyResultDataAccessException e) {
+        teamLogger.error(e.getLocalizedMessage(), e);
         return new ResponseEntity<>(e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
     }
 }
