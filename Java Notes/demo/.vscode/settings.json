@@ -26,5 +26,6 @@
             "username": "TwcL774",
             "database": "planetarium"
         }
-    ]
+    ],
+    "java.compile.nullAnalysis.mode": "automatic"
 }
